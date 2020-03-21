@@ -1,13 +1,15 @@
 import { combineReducers } from "redux";
-import counter, { increaseSaga, decreaseSaga } from "./counter";
+import counter, { counterSaga } from "./counter";
+import users, { getUsersSaga } from "./users";
 import { all } from "redux-saga/effects";
 
 const rootReducer = combineReducers({
-  counter
+  counter,
+  users
 });
 
 export function* rootSaga() {
-  yield all([increaseSaga(), decreaseSaga()]);
+  yield all([counterSaga(), getUsersSaga()]);
 }
 
 export type RootReducerType = ReturnType<typeof rootReducer>;

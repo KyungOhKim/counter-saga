@@ -1,17 +1,17 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { RootReducerType } from "../modules";
-import { increase, decrease } from "../modules/counter";
+import { increaseAsync, decreaseAsync } from "../modules/counter";
 
 const Counter = () => {
   const state = useSelector((state: RootReducerType) => state.counter);
   const dispatch = useDispatch();
 
   const handleIncrease = () => {
-    dispatch(increase());
+    dispatch(increaseAsync());
   };
   const handleDecrease = () => {
-    dispatch(decrease());
+    dispatch(decreaseAsync());
   };
 
   return (
